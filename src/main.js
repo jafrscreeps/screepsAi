@@ -1,4 +1,4 @@
-const {spawnerCore} = require('./spawn.js');
+const {spawnerCore} = require('./spawn');
 const gathererBrain = require('./role-harvester');
 const gatherers = getGatherers();
 
