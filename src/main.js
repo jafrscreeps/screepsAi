@@ -10,5 +10,5 @@ for (const gatherer of gatherers) {
 }
 
 function getGatherers() {
-    return _.filter(Game.creeps, (c, name) => name.match(/^bGather/));
+    return _.filter(Game.creeps, (c, name) => name.match(/^bGather/) || c.memory.role === 'harvester');
 }
