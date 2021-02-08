@@ -26,9 +26,14 @@ function getUnits() {
 
     _.forEach(Game.creeps, (creep, name) => {
         if (!creep.memory.role) {
-            Game.notify(`Creep ${name} does not have role defined`);
+            console.warn(`Creep ${name} does not have role defined`);
         } else {
-            collector[creep.memory.role].push(creep);
+            if(RoleName[creep.memory.role]) {
+                collector[creep.memory.role].push(creep);
+            } else {
+                console.warn(`Creep ${name} has invalid role ${creep.memory.role}`);
+            }
+
         }
     });
 
