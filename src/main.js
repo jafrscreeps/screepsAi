@@ -14,7 +14,7 @@ if (units[RoleName.upgrader].length < 1) {
 for (const gatherer of units[RoleName.gatherer]) {
     gathererBrain.run(gatherer);
 }
-for(const upgrader of units[RoleName.upgrader]) {
+for (const upgrader of units[RoleName.upgrader]) {
     upgraderBrain.run(upgrader);
 }
 
@@ -25,7 +25,11 @@ function getUnits() {
     };
 
     _.forEach(Game.creeps, (creep, name) => {
-        collector[creep.memory.type].push(creep);
+        if (!creep.memory.type) {
+            Game.notify(`Creep ${name} does not have type defined`);
+        } else {
+            collector[creep.memory.type].push(creep);
+        }
     });
 
     return collector;
