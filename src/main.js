@@ -1,14 +1,32 @@
+const {RoleName} = require('./role-name');
 const {spawnerCore} = require('./spawn');
 const gathererBrain = require('./role-harvester');
-const gatherers = getGatherers();
+const upgraderBrain = require('./role-upgrader');
+const units = getUnits();
 
-if (gatherers.length < 3) {
-    spawnerCore.spawnGatherer();
+if (units[RoleName.gatherer].length < 3) {
+    spawnerCore.spawn(RoleName.gatherer);
 }
-for (const gatherer of gatherers) {
+if (units[RoleName.upgrader].length < 1) {
+    spawnerCore.spawn(RoleName.upgrader)
+}
+
+for (const gatherer of units[RoleName.gatherer]) {
     gathererBrain.run(gatherer);
 }
+for(const upgrader of units[RoleName.upgrader]) {
+    upgraderBrain.run(upgrader);
+}
 
-function getGatherers() {
-    return _.filter(Game.creeps, (c, name) => name.match(/^bGather/) || c.memory.role === 'harvester');
+function getUnits() {
+    const collector = {
+        [RoleName.gatherer]: [],
+        [RoleName.upgrader]: []
+    };
+
+    _.forEach(Game.creeps, (creep, name) => {
+        collector[creep.memory.type].push(creep);
+    });
+
+    return collector;
 }
