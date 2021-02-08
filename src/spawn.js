@@ -4,7 +4,7 @@ const {BodyParts} = require('./body-parts');
 exports.spawnerCore = {
     spawn(role) {
         if (!RoleName[role]) {
-            Game.notify(`Unknown role ${role}`);
+            console.log(`Unknown role ${role}`);
             return;
         }
         if (canRunSpawn()) {
