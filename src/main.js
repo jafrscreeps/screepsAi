@@ -25,10 +25,10 @@ function getUnits() {
     };
 
     _.forEach(Game.creeps, (creep, name) => {
-        if (!creep.memory.type) {
-            Game.notify(`Creep ${name} does not have type defined`);
+        if (!creep.memory.role) {
+            Game.notify(`Creep ${name} does not have role defined`);
         } else {
-            collector[creep.memory.type].push(creep);
+            collector[creep.memory.role].push(creep);
         }
     });
 

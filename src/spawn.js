@@ -8,7 +8,11 @@ exports.spawnerCore = {
             return;
         }
         if (canRunSpawn()) {
-            Game.spawns['Spawn1'].spawnCreep([BodyParts.Work, BodyParts.Move, BodyParts.Carry], `${role}${Game.time}`, {role});
+            Game.spawns['Spawn1'].spawnCreep(
+                [BodyParts.Work, BodyParts.Move, BodyParts.Carry],
+                `${role}${Game.time}`,
+                {role}
+            );
         } else {
             Game.notify('Spawn in progress');
         }
