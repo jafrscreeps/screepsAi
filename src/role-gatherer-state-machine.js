@@ -36,7 +36,7 @@ function createAwaitFunction(nextState) {
         // assignMineOrder(creep);
         const target = Game.getObjectById(creep.memory.targetStructure);
 
-        if (creep.pos.inRangeTo(target.pos)) {
+        if (creep.pos.inRangeTo(target.pos, Math.sqrt(2))) {
             creep.memory.state = nextState;
         } else {
             const path = creep.pos.findPathTo(target);
