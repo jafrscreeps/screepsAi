@@ -38,6 +38,9 @@ function createAwaitFunction(nextState) {
 
         if (creep.pos.inRangeTo(target.pos)) {
             creep.memory.state = nextState;
+        } else {
+            const path = creep.pos.findPathTo(target);
+            creep.moveByPath(path, {visualizePathStyle: {stroke: '#ffaa00'}});
         }
     }
 }
