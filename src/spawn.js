@@ -5,16 +5,14 @@ exports.spawnerCore = {
     spawn(role) {
         if (!RoleName[role]) {
             console.log(`Unknown role ${role}`);
-            return;
-        }
-        if (canRunSpawn()) {
+        } else if (canRunSpawn()) {
             Game.spawns['Spawn1'].spawnCreep(
                 [BodyParts.Work, BodyParts.Move, BodyParts.Carry],
                 `${role}${Game.time}`,
                 {role}
             );
         } else {
-            Game.notify('Spawn in progress');
+            console.log('Spawn in progress');
         }
     }
 }
