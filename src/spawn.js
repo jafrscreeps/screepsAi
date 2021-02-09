@@ -1,5 +1,10 @@
 const {RoleName} = require('./role-name');
 const {BodyParts} = require('./body-parts');
+const {GathererState} = require('./gatherer');
+
+const defaults = {
+    [RoleName.gatherer]: {state: GathererState.Empty}
+}
 
 exports.spawnerCore = {
     spawn(role) {
@@ -10,7 +15,7 @@ exports.spawnerCore = {
             Game.spawns['Spawn1'].spawnCreep(
                 [BodyParts.Work, BodyParts.Move, BodyParts.Carry],
                 `${role}${Game.time}`,
-                {memory: {role}}
+                {memory: {role, ...(defaults[role] || {})}}
             );
         } else {
             console.log('Spawn in progress');

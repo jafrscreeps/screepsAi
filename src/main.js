@@ -1,6 +1,6 @@
 const {RoleName} = require('./role-name');
 const {spawnerCore} = require('./spawn');
-const gathererBrain = require('./role-harvester');
+const gathererBrain = require('./role-gatherer');
 const upgraderBrain = require('./role-upgrader');
 const units = getUnits();
 
@@ -32,7 +32,6 @@ function getUnits() {
             } else {
                 console.log(`Creep ${name} has invalid role ${creep.memory.role}`);
             }
-
         }
     });
 
