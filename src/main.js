@@ -1,6 +1,6 @@
 const {RoleName} = require('./role-name');
 const {spawnerCore} = require('./spawn');
-const gathererBrain = require('./role-gatherer');
+const gathererBrain = require('./role-gatherer-state-machine');
 const upgraderBrain = require('./role-upgrader');
 const units = getUnits();
 
