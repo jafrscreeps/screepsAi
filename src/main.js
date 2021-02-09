@@ -3,8 +3,11 @@ const {spawnerCore} = require('./spawn');
 const gathererBrain = require('./role-gatherer-state-machine');
 const upgraderBrain = require('./role-upgrader');
 const builderBrain = require('./role-builder');
+const {clearMemory} = require("./memory-cleanup");
 const {roomsConfig} = require("./room-stats");
 const units = getUnits();
+
+clearMemory();
 
 const mainSpawn = Game.spawns.Spawn1;
 checkWorkerNumbers(mainSpawn.room);
