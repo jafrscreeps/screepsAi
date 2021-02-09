@@ -6,8 +6,7 @@ const units = getUnits();
 
 if (units[RoleName.gatherer].length < 3) {
     spawnerCore.spawn(RoleName.gatherer);
-}
-if (units[RoleName.upgrader].length < 1) {
+} else if (units[RoleName.upgrader].length < 1) {
     spawnerCore.spawn(RoleName.upgrader)
 }
 
@@ -28,7 +27,7 @@ function getUnits() {
         if (!creep.memory.role) {
             console.log(`Creep ${name} does not have role defined`);
         } else {
-            if(RoleName[creep.memory.role]) {
+            if (RoleName[creep.memory.role]) {
                 collector[creep.memory.role].push(creep);
             } else {
                 console.log(`Creep ${name} has invalid role ${creep.memory.role}`);

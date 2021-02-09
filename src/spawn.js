@@ -9,7 +9,7 @@ exports.spawnerCore = {
             Game.spawns['Spawn1'].spawnCreep(
                 [BodyParts.Work, BodyParts.Move, BodyParts.Carry],
                 `${role}${Game.time}`,
-                {role}
+                {memory: {role}}
             );
         } else {
             console.log('Spawn in progress');
