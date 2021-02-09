@@ -3,7 +3,7 @@ const {GathererState} = require("./gatherer");
 const roleGatherer = {
     /** @param {Creep} creep **/
     run: function (creep) {
-        const creepState = creep.memory.state;
+        const creepState = creep.memory.state || GathererState.Empty;
         stateFns[creepState](creep);
     }
 };
