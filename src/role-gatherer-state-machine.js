@@ -62,7 +62,7 @@ function gather(creep) {
             const closestTarget = creep.pos.findClosestByPath(targets);
             const path = creep.pos.findPathTo(closestTarget);
 
-            creep.memory.targetStructure = closestSource.id;
+            creep.memory.targetStructure = closestTarget.id;
             creep.moveByPath(path, {visualizePathStyle: {stroke: '#ffaa00'}});
 
             creep.memory.state = GathererState.MovingToTransfer;
