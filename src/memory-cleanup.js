@@ -1,0 +1,2 @@
+exports.clearMemory = function clearMemory() {
+}

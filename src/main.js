@@ -20,6 +20,10 @@ for (const builder of units[RoleName.builder]) {
 }
 
 function getUnits() {
+    /**
+     *
+     * @type CreepCollector<Creep>
+     */
     const collector = {
         [RoleName.gatherer]: [],
         [RoleName.upgrader]: [],
