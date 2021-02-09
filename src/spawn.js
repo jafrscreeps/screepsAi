@@ -6,6 +6,7 @@ exports.spawnerCore = {
         if (!RoleName[role]) {
             console.log(`Unknown role ${role}`);
         } else if (canRunSpawn()) {
+            console.log(`Spawn order for role ${role}`);
             Game.spawns['Spawn1'].spawnCreep(
                 [BodyParts.Work, BodyParts.Move, BodyParts.Carry],
                 `${role}${Game.time}`,
